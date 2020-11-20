@@ -1,25 +1,53 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import LoadingPage from "./Pages/Loading";
+// import HanoiTowersControll from "./Pages/HanoiTowersControll";
+// import BasketballControll from "./Pages/BasketballController";
+import { FullScreen, useFullScreenHandle } from "react-full-screen";
+import mqtt from "mqtt";
+import ErrorPage from "./Pages/ErrorPage";
+import KillYourRefereeControll from "./Pages/KillYourRefereeControll";
+
+type appState = "connected" | "connecting" | "connectionLost" | "failed";
 
 function App() {
+  const [mqttClient, setMqttClient] = useState<mqtt.MqttClient | undefined>(undefined);
+  const [state, setState] = useState<appState>("connecting");
+
+  const sendMessage = (channel: string, msg: string) => {
+    if (mqttClient !== undefined) mqttClient.publish(channel, msg);
+  };
+
+  const messageArrived = (msg: string) => {};
+
+  useEffect(() => {
+    const client = mqtt.connect("wss://stastnyj.duckdns.org:9001/mqtt");
+
+    client.on("connect", () => {
+      client.subscribe("presentGameController");
+      setState("connected");
+    });
+
+    client.on("message", function (topic, message) {
+      messageArrived(message.toString());
+    });
+
+    client.on("disconnect", () => setState("connectionLost"));
+
+    setMqttClient(client);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <FullScreen handle={useFullScreenHandle()}>
+      {state === "connecting" ? (
+        <LoadingPage />
+      ) : state === "failed" || state === "connectionLost" ? (
+        <ErrorPage />
+      ) : (
+        // <HanoiTowersControll sendMessage={sendMessage} />
+        // <BasketballControll sendMessage={sendMessage} />
+        <KillYourRefereeControll sendMessage={sendMessage} />
+      )}
+    </FullScreen>
   );
 }
 
