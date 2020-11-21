@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import LoadingPage from "./Pages/Loading";
 // import HanoiTowersControll from "./Pages/HanoiTowersControll";
 // import BasketballControll from "./Pages/BasketballController";
+// import KillYourRefereeControll from "./Pages/KillYourRefereeControll";
+import TetrsControll from "./Pages/TetrisController";
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import mqtt from "mqtt";
 import ErrorPage from "./Pages/ErrorPage";
-import KillYourRefereeControll from "./Pages/KillYourRefereeControll";
 
 type appState = "connected" | "connecting" | "connectionLost" | "failed";
 
@@ -45,7 +46,8 @@ function App() {
       ) : (
         // <HanoiTowersControll sendMessage={sendMessage} />
         // <BasketballControll sendMessage={sendMessage} />
-        <KillYourRefereeControll sendMessage={sendMessage} />
+        // <KillYourRefereeControll sendMessage={sendMessage} />
+        <TetrsControll sendMessage={sendMessage} />
       )}
     </FullScreen>
   );
