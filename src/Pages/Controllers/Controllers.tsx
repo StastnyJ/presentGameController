@@ -5,6 +5,7 @@ import KillYourRefereeController from "./KillYourRefereeController";
 import TetrisController from "./TetrisController";
 import MainController from "./MainController";
 import GameWonController from "./GameWonController";
+import KubaController from "./KubaController";
 
 export const getConrollers = (sendMessage: (chenel: string, message: string) => void) => {
   return {
@@ -14,5 +15,6 @@ export const getConrollers = (sendMessage: (chenel: string, message: string) => 
     KillYourReferee: <KillYourRefereeController sendMessage={sendMessage} />,
     Tetris: <TetrisController sendMessage={sendMessage} />,
     GameWon: <GameWonController sendMessage={sendMessage} />,
+    Kuba: <KubaController sendMessage={sendMessage} />,
   } as { [index: string]: JSX.Element };
 };
