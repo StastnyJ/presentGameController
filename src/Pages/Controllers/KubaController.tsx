@@ -53,7 +53,7 @@ export default function KubaController({ sendMessage }: IProps) {
   const classes = useStyles();
   return (
     <>
-      <div className={classes.arrowUp} onClick={() => sendMessage("presentGame", "move:ROTATE")}></div>
+      <div className={classes.arrowUp} onClick={() => sendMessage("presentGame", "move:UP")}></div>
       <div className={classes.arrowLeft} onClick={() => sendMessage("presentGame", "move:LEFT")}></div>
       <div className={classes.arrowDown} onClick={() => sendMessage("presentGame", "move:DOWN")}></div>
       <div className={classes.arrowRight} onClick={() => sendMessage("presentGame", "move:RIGHT")}></div>
