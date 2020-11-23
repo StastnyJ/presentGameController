@@ -13,7 +13,7 @@ export default function GameWonController({ sendMessage }: IProps) {
       <Button
         onClick={(e) => {
           sendMessage("presentGameLayout", "NextScene");
-          sendMessage("requestController:Main", "NextScene");
+          sendMessage("presentGameController", "requestController:Main");
         }}
         color="primary"
         variant="contained"
