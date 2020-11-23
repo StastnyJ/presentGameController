@@ -58,7 +58,7 @@ interface IProps {
   sendMessage: (chenel: string, message: string) => void;
 }
 
-export default function KillYourRefereeControll({ sendMessage }: IProps) {
+export default function KillYourRefereeController({ sendMessage }: IProps) {
   const classes = useStyles();
   return (
     <>

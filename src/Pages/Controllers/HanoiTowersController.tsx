@@ -5,7 +5,7 @@ interface IProps {
   sendMessage: (chenel: string, message: string) => void;
 }
 
-export default function HanoiTowersControll({ sendMessage }: IProps) {
+export default function HanoiTowersController({ sendMessage }: IProps) {
   return (
     <>
       <Button onClick={(e) => sendMessage("presentGame", "click:0")} color="primary" variant="contained" fullWidth>

@@ -61,7 +61,7 @@ function vhTOpx(value: number) {
   return result;
 }
 
-export default function BasketballControll({ sendMessage }: IProps) {
+export default function BasketballController({ sendMessage }: IProps) {
   const classes = useStyles();
   const [coords, setCoords] = useState({ x: -1, y: -1 });
 
