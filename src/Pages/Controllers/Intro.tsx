@@ -45,7 +45,7 @@ export default function Intro({ sendMessage }: IProps) {
           <br />
           <Typography variant="h4">Výběr postav</Typography>
           <span style={{ flexGrow: 1 }}></span>
-          <img className={classes.avatar} src="/img/character.jpg" />
+          <img alt="avatar" className={classes.avatar} src="/img/character.jpg" />
           <Typography variant="h6">Šťastný vratislav</Typography>
           <Typography variant="h5">Věk: 50 let</Typography>
           <Typography variant="h5">Výška: xxx cm</Typography>
