@@ -34,8 +34,8 @@ export default function HanoiTowersControll({ sendMessage }: IProps) {
   const classes = useStyles();
   return (
     <>
-      <div className={classes.arrowRight} onClick={(e) => sendMessage("presentGameLayout", "PrevScene")}></div>
-      <div className={classes.arrowLeft} onClick={(e) => sendMessage("presentGameLayout", "NextScene")}></div>
+      <div className={classes.arrowLeft} onClick={(e) => sendMessage("presentGameLayout", "PrevScene")}></div>
+      <div className={classes.arrowRight} onClick={(e) => sendMessage("presentGameLayout", "NextScene")}></div>
     </>
   );
 }
