@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Avatar, Button, createStyles, makeStyles, Theme, Typography } from "@material-ui/core";
+import { Button, createStyles, makeStyles, Theme, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
