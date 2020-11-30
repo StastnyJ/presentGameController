@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import LoadingPage from "./Pages/Loading";
-import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import mqtt from "mqtt";
 import ErrorPage from "./Pages/ErrorPage";
 import { getConrollers } from "./Pages/Controllers/Controllers";
+import "./App.css";
 
 type appState = "connected" | "connecting" | "connectionLost" | "failed";
 
 function App() {
   const [mqttClient, setMqttClient] = useState<mqtt.MqttClient | undefined>(undefined);
-  const [actController, setActController] = useState("Main");
+  const [actController, setActController] = useState("Intro");
   const [state, setState] = useState<appState>("connecting");
 
   const sendMessage = (channel: string, msg: string) => {
@@ -40,7 +40,7 @@ function App() {
   const controllers = getConrollers(sendMessage);
 
   return (
-    <FullScreen handle={useFullScreenHandle()}>
+    <>
       {state === "connecting" ? (
         <LoadingPage />
       ) : state === "failed" || state === "connectionLost" ? (
@@ -48,7 +48,7 @@ function App() {
       ) : (
         controllers[actController]
       )}
-    </FullScreen>
+    </>
   );
 }
 

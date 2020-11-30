@@ -6,9 +6,12 @@ import TetrisController from "./TetrisController";
 import MainController from "./MainController";
 import GameWonController from "./GameWonController";
 import KubaController from "./KubaController";
+import WhumpusController from "./WhumpusController";
+import Intro from "./Intro";
 
 export const getConrollers = (sendMessage: (chenel: string, message: string) => void) => {
   return {
+    Intro: <Intro sendMessage={sendMessage} />,
     Main: <MainController sendMessage={sendMessage} />,
     Basketball: <BasketballController sendMessage={sendMessage} />,
     Hanoi: <HanoiTowersController sendMessage={sendMessage} />,
@@ -16,5 +19,6 @@ export const getConrollers = (sendMessage: (chenel: string, message: string) => 
     Tetris: <TetrisController sendMessage={sendMessage} />,
     GameWon: <GameWonController sendMessage={sendMessage} />,
     Kuba: <KubaController sendMessage={sendMessage} />,
+    Whumpus: <WhumpusController sendMessage={sendMessage} />,
   } as { [index: string]: JSX.Element };
 };
