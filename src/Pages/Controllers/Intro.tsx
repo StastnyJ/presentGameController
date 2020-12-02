@@ -46,11 +46,18 @@ export default function Intro({ sendMessage }: IProps) {
           <Typography variant="h4">Výběr postav</Typography>
           <span style={{ flexGrow: 1 }}></span>
           <img alt="avatar" className={classes.avatar} src="/img/character.jpg" />
-          <Typography variant="h6">Šťastný vratislav</Typography>
-          <Typography variant="h5">Věk: 50 let</Typography>
-          <Typography variant="h5">Výška: xxx cm</Typography>
-          <Typography variant="h5">Váha: xxx kg</Typography>
-          <Typography variant="h5">Speciální dovednosti: </Typography>
+          <Typography variant="h6">Šťastný Vratislav</Typography>
+          <Typography variant="h5">Věk: ten nejlepší</Typography>
+          <Typography variant="h5">Výška: ohromná</Typography>
+          <Typography variant="h5">Váha: pořádná</Typography>
+          <Typography variant="h5">
+            Speciální dovednosti: <br />
+            <ul>
+              <li>Dokáže nechat zmizet celou tabulku čokolády</li>
+              <li>Záchod ucpe ve dvou vlnách</li>
+              <li>Ujde desítky kilometrů aniž by opustil dům</li>
+            </ul>
+          </Typography>
           <br />
           <Button
             fullWidth
