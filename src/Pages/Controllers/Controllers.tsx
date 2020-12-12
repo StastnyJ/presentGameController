@@ -9,6 +9,7 @@ import KubaController from "./KubaController";
 import WhumpusController from "./WhumpusController";
 import Intro from "./Intro";
 import SwappingController from "./SwappingController";
+import GameOverController from "./GameOverController";
 
 export const getConrollers = (sendMessage: (chenel: string, message: string) => void) => {
   return {
@@ -22,5 +23,6 @@ export const getConrollers = (sendMessage: (chenel: string, message: string) => 
     Kuba: <KubaController sendMessage={sendMessage} />,
     Whumpus: <WhumpusController sendMessage={sendMessage} />,
     Swapping: <SwappingController sendMessage={sendMessage} />,
+    GameOver: <GameOverController sendMessage={sendMessage} />,
   } as { [index: string]: JSX.Element };
 };

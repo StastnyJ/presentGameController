@@ -1,11 +1,11 @@
-import { Button, Typography } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import React from "react";
 
 interface IProps {
   sendMessage: (chenel: string, message: string) => void;
 }
 
-export default function GameWonController({ sendMessage }: IProps) {
+export default function GameOverController({ sendMessage }: IProps) {
   return (
     <>
       <div
@@ -20,18 +20,6 @@ export default function GameWonController({ sendMessage }: IProps) {
         }}
       >
         <Typography variant="h3">Vyhrál jsi</Typography>
-        <br />
-        <Button
-          onClick={(e) => {
-            sendMessage("presentGameLayout", "NextScene");
-            sendMessage("presentGameController", "requestController:Main");
-          }}
-          color="primary"
-          variant="contained"
-          fullWidth
-        >
-          Ukončit hru
-        </Button>
       </div>
     </>
   );

@@ -50,9 +50,10 @@ export default function Intro({ sendMessage }: IProps) {
           <Typography variant="h5">Věk: ten nejlepší</Typography>
           <Typography variant="h5">Výška: ohromná</Typography>
           <Typography variant="h5">Váha: pořádná</Typography>
-          <Typography variant="h5">
-            Speciální dovednosti: <br />
-            <ul>
+          <br />
+          <Typography variant="h5">Speciální dovednosti:</Typography>
+          <Typography variant="body1">
+            <ul style={{ listStyle: "none" }}>
               <li>Dokáže nechat zmizet celou tabulku čokolády</li>
               <li>Záchod ucpe ve dvou vlnách</li>
               <li>Ujde desítky kilometrů aniž by opustil dům</li>
